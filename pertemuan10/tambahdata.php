@@ -7,7 +7,12 @@ if(isset($_POST["submit"])) {
 
     // cek apakah berhasil atau tidak
     if( tambah($_POST) > 0 ){
-        echo "<p style='color:green'> data sudah terupload</p>";
+        echo "
+        <script>
+        alert('data berhasil ditambahkan!');
+        document.location.href = 'index.php'
+        </script>
+        ";
     }
     else{
         echo "<p style='color:red'> data gagal terupload</p>";
