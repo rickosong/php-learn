@@ -37,4 +37,14 @@ function tambah($data){
     return mysqli_affected_rows($conn_db);
 }
 
+
+// logika hapus data adalah ambil dulu id baru dimasukkan ke $id, setelah itu masukkan $id ke dalam parameter fungsi hapus, di fungsi hapus kita delete id yg terpilih menggunakan sql, lalu tampilkan affecterd rowsnya.
+function hapus($data){
+    global $conn_db;
+
+    mysqli_query($conn_db, "DELETE FROM mahasiswa WHERE id = $data ");
+
+    return mysqli_affected_rows($conn_db);
+}
+
 ?>
