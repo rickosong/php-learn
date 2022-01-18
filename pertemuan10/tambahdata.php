@@ -33,16 +33,16 @@ if(isset($_POST["submit"])) {
 <body>
     <form action="" method="POST">
         <label for="nrp">NRP :</label>
-        <input type="text" name="nrp" id="nrp" placeholder="masukkan nrp anda">
+        <input type="text" name="nrp" id="nrp" placeholder="masukkan nrp anda" required>
         <br><br>
         <label for="nama">Nama : </label>
-        <input type="text" name="nama" id="nama" placeholder="masukkan nama anda">
+        <input type="text" name="nama" id="nama" placeholder="masukkan nama anda" required>
         <br><br>
         <label for="email">Email : </label>
-        <input type="text" name="email" id="email" placeholder="masukkan email anda">
+        <input type="text" name="email" id="email" placeholder="masukkan email anda" required>
         <br><br>
         <label for="jurusan">Jurusan : </label>
-        <input type="text" name="jurusan" id="jurusan" placeholder="masukkan jurusan anda">
+        <input type="text" name="jurusan" id="jurusan" placeholder="masukkan jurusan anda" required>
         <br><br>
         <label for="gambar">Gambar : </label>
         <input type="text" name="gambar" id="gambar" placeholder="masukkan nama gambar anda">
