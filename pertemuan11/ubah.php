@@ -8,6 +8,7 @@ $id = $_GET["id"];
 //  query data mahasiswa berdasarkan id
 $mhs= query("SELECT * FROM mahasiswa WHERE id = $id") [0];  //ditambahkan [0] agar tidak susah  lagi saat menulis [0] di value form
 // var_dump($mhs0]["nama"]) var dump ini sebagai catatan bagaimana cara mengisi value pada form
+// var_dump($mhs);
 
 // cek apakah tombol submit sdh ditekan atau belum
 if(isset($_POST["submit"])) {
@@ -39,6 +40,7 @@ if(isset($_POST["submit"])) {
 </head>
 <body>
     <form action="" method="POST">
+        <input type="hidden" name="id" value="<?= $mhs["id"] ?>">
         <label for="nrp">NRP :</label>
         <input type="text" name="nrp" id="nrp" placeholder="masukkan nrp anda" required value="<?= $mhs["nrp"] ?>">
         <br><br>

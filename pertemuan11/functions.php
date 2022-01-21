@@ -47,4 +47,37 @@ function hapus($data){
     return mysqli_affected_rows($conn_db);
 }
 
+function ubah($data) {
+    global $conn_db;
+
+        // ambil data dari elemen dalam form
+        $id = $data["id"];
+        $nrp = htmlspecialchars($data["nrp"]);
+        $nama = htmlspecialchars($data["nama"]);
+        $email = htmlspecialchars($data["email"]);
+        $jurusan = htmlspecialchars($data["jurusan"]);
+        $gambar = htmlspecialchars($data["gambar"]);
+
+        // query insert data
+        $query = "UPDATE mahasiswa SET
+                        nrp = '$nrp',
+                        nama = '$nama',
+                        email= '$email',
+                        jurusan = '$jurusan',
+                        gambar = '$gambar'
+                WHERE id = $id
+        "; //untuk bahasa manusia nya "update tabel mahasiswa set di field nrp, nama, emai, jurusan, dan gambar yg mana sesuai dengan id yang didapat"
+
+        // catatan dari komentar dibawah. jadi function ubah bisa ditambahkan parameternya "function($data, $id) lalu ditambahkan $id yg diadapat dari $_GET["id"]"
+        // Just info: Daripada buat li baru untuk id. Mending di function ubah tambah parameter $id. So ubah($_post, $id). $id diambil dari variable $id = $_get["id"].
+
+        mysqli_query($conn_db, $query);
+
+    return mysqli_affected_rows($conn_db);
+
+
+}
+
+
+
 ?>

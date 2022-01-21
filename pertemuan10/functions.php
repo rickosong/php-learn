@@ -47,32 +47,4 @@ function hapus($id){
     return mysqli_affected_rows($conn_db);
 }
 
-
-function ubah($data) {
-    global $conn_db;
-
-        // ambil data dari elemen dalam form
-        $nrp = htmlspecialchars($data["nrp"]);
-        $nama = htmlspecialchars($data["nama"]);
-        $email = htmlspecialchars($data["email"]);
-        $jurusan = htmlspecialchars($data["jurusan"]);
-        $gambar = htmlspecialchars($data["gambar"]);
-
-        // query insert data
-        $query = "UPDATE mahasiswa SET
-                        nrp = '$nrp',
-                        nama = '$nama',
-                        email= '$email',
-                        jurusan = '$jurusan',
-                        gambar = '$gambar'
-                WHERE id = $id
-        "; 
-
-        mysqli_query($conn_db, $query);
-
-    return mysqli_affected_rows($conn_db);
-
-
-}
-
 ?>
