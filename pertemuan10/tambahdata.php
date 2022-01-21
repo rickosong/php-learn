@@ -5,7 +5,7 @@ require "functions.php";
 // cek apakah tombol submit sdh ditekan atau belum
 if(isset($_POST["submit"])) {
 
-    // cek apakah berhasil atau tidak
+    // cek apakah berhasil ditambah atau tidak
     if( tambah($_POST) > 0 ){
         echo "
         <script>

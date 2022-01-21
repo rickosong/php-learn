@@ -39,12 +39,40 @@ function tambah($data){
 
 
 // logika hapus data adalah ambil dulu id baru dimasukkan ke $id, setelah itu masukkan $id ke dalam parameter fungsi hapus, di fungsi hapus kita delete id yg terpilih menggunakan sql, lalu tampilkan affecterd rowsnya.
-function hapus($data){
+function hapus($id){
     global $conn_db;
 
-    mysqli_query($conn_db, "DELETE FROM mahasiswa WHERE id = $data ");
+    mysqli_query($conn_db, "DELETE FROM mahasiswa WHERE id = $id ");
 
     return mysqli_affected_rows($conn_db);
+}
+
+
+function ubah($data) {
+    global $conn_db;
+
+        // ambil data dari elemen dalam form
+        $nrp = htmlspecialchars($data["nrp"]);
+        $nama = htmlspecialchars($data["nama"]);
+        $email = htmlspecialchars($data["email"]);
+        $jurusan = htmlspecialchars($data["jurusan"]);
+        $gambar = htmlspecialchars($data["gambar"]);
+
+        // query insert data
+        $query = "UPDATE mahasiswa SET
+                        nrp = '$nrp',
+                        nama = '$nama',
+                        email= '$email',
+                        jurusan = '$jurusan',
+                        gambar = '$gambar'
+                WHERE id = $id
+        "; 
+
+        mysqli_query($conn_db, $query);
+
+    return mysqli_affected_rows($conn_db);
+
+
 }
 
 ?>
