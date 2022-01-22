@@ -45,7 +45,7 @@ if(isset($_POST["submit"])) {
         <input type="text" name="jurusan" id="jurusan" placeholder="masukkan jurusan anda" required>
         <br><br>
         <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" placeholder="masukkan nama gambar anda">
+        <input type="file" name="gambar" id="gambar" placeholder="masukkan nama gambar anda">
         <br><br>
         <button type="submit" name="submit">Tambah Data</button>
     </form>
