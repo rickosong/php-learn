@@ -78,6 +78,18 @@ function ubah($data) {
 
 }
 
+// ambil keyword yg ada pada  kolom search lalu transfer data ke functions cari dan dimasukan ke parameter $keyword.. setelah itu lakukan query seperti dibawah(masukkan keyword ke field nama/ nrp/ email/ atau jurusan) lalu simpan ke dalam $query, lalu $query dimasukkan ke dalam functions query, jdi data nya tersebut di proses di dalam functions query dan data yg sdh diproses dikembalikan dalam bentuk array rows ke dalam functions cari, seteelah itu function cari mengembalikannya lagi ke dalam $mahasiswa di index.php, dan karena sdh dikembalikan, maka isi $mahasiswa hanya tersisa 1 filed mahasiswa yg dicari keywordnya dan itu ditampilkan di table melalui perintah $row["id"](contohnya).
+function cari($keyword) {
+    $query = "SELECT * FROM mahasiswa 
+                    WHERE
+                    nama LIKE '%$keyword%' OR
+                    nrp LIKE '%$keyword%' OR
+                    email LIKE '%$keyword%' OR
+                    jurusan LIKE '%$keyword%'
+                    ";
+    return query($query);
+}
+
 
 
 ?>
