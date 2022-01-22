@@ -5,6 +5,10 @@ require "functions.php";
 // cek apakah tombol submit sdh ditekan atau belum
 if(isset($_POST["submit"])) {
 
+    // cek data post dan files dengan vardump
+    // var_dump($_POST);
+    // var_dump($_FILES); die;
+
     // cek apakah berhasil ditambah atau tidak
     if( tambah($_POST) > 0 ){
         echo "
@@ -31,7 +35,7 @@ if(isset($_POST["submit"])) {
     <title>Form Tambah Data Mahasiswa</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <label for="nrp">NRP :</label>
         <input type="text" name="nrp" id="nrp" placeholder="masukkan nrp anda" required>
         <br><br>
