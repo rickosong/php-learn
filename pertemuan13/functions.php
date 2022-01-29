@@ -71,6 +71,10 @@ function upload(){
         return false;
     }
 
+    // lolos pengecekan, gambar siap diupload
+    move_uploaded_file($tmpName, "img/" . $namaFile);
+
+    return $namaFile;
 }
 
 
