@@ -65,6 +65,12 @@ function upload(){
         return false;
     }
 
+    // cek ukuran file foto agar tidak terlalu besar
+    if ($ukuranFile > 1000000){
+        echo "<script>alert('ukuran file foto yang anda masukkan terlalu besar')</script>";
+        return false;
+    }
+
 }
 
 
