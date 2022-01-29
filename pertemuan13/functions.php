@@ -26,9 +26,9 @@ function tambah($data){
         $email = htmlspecialchars($data["email"]);
         $jurusan = htmlspecialchars($data["jurusan"]);
 
-        // upload gambar
+        // upload gambar    note jika variable seperti $gambar ditambahkan tanda seru seperti $!gambar, itu artinya "gambar == false"
         $gambar = upload();
-        if ($gambar == false){
+        if (!$gambar){
             return false;
         }
 
@@ -42,6 +42,7 @@ function tambah($data){
     return mysqli_affected_rows($conn_db);
 }
 
+
 function upload(){
     $namaFile = $_FILES['gambar'] ['name'];
     $ukuranFile = $_FILES['gambar']['size'];
@@ -51,6 +52,16 @@ function upload(){
     // cek apakah data ada / diupload
     if($error == 4){
         echo "<script>alert('anda belum mengisi foto')</script>";
+        return false;
+    }
+
+    // cek apakah data yg diupload adalah gambar
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if( !in_array($ekstensiGambar, $ekstensiGambarValid)){
+        echo "<script>alert('file yang anda isi bukanlah sebuah foto, harus foto')</script>";
         return false;
     }
 
