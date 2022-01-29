@@ -71,10 +71,15 @@ function upload(){
         return false;
     }
 
-    // lolos pengecekan, gambar siap diupload
-    move_uploaded_file($tmpName, "img/" . $namaFile);
+    // generate nama baru untuk file agar tidak ada file yg terduplikat namanya
+    $namaFileBaru = uniqid();
+    $namaFileBaru = '.';
+    $namaFileBaru = $ekstensiGambar;
 
-    return $namaFile;
+    // lolos pengecekan, gambar siap diupload
+    move_uploaded_file($tmpName, "img/" . $namaFileBaru);
+
+    return $namaFileBaru;
 }
 
 
