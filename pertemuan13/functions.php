@@ -73,12 +73,12 @@ function upload(){
 
     // generate nama baru untuk file agar tidak ada file yg terduplikat namanya
     $namaFileBaru = uniqid();
-    $namaFileBaru = '.';
-    $namaFileBaru = $ekstensiGambar;
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
 
     // lolos pengecekan, gambar siap diupload
     move_uploaded_file($tmpName, "img/" . $namaFileBaru);
-
+    // var_dump($namaFileBaru); die;
     return $namaFileBaru;
 }
 

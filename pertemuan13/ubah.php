@@ -55,8 +55,9 @@ if(isset($_POST["submit"])) {
         <label for="jurusan">Jurusan : </label>
         <input type="text" name="jurusan" id="jurusan" placeholder="masukkan jurusan anda" required value="<?= $mhs["jurusan"] ?>">
         <br><br>
-        <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" placeholder="masukkan nama gambar anda" value="<?= $mhs["gambar"] ?>">
+        <label for="gambar">Gambar : </label><br>
+        <img src="img/<?= $mhs["gambar"] ?>" alt="">
+        <input type="file" name="gambar" id="gambar" placeholder="masukkan nama gambar anda">
         <br><br>
         <button type="submit" name="submit">Ubah Data</button>
     </form>
