@@ -28,7 +28,7 @@ function tambah($data){
 
         // upload gambar
         $gambar = upload();
-        if (!$gambar){
+        if ($gambar == false){
             return false;
         }
 
@@ -47,6 +47,12 @@ function upload(){
     $ukuranFile = $_FILES['gambar']['size'];
     $error = $_FILES['gambar']['error'];
     $tmpName = $_FILES['gambar']['tmp_name'];
+
+    // cek apakah data ada / diupload
+    if($error == 4){
+        echo "<script>alert('anda belum mengisi foto')</script>";
+        return false;
+    }
 
 }
 
