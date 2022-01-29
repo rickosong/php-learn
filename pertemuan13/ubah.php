@@ -43,7 +43,7 @@ if(isset($_POST["submit"])) {
 <body>
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $mhs["id"] ?>">
-        <input type="hidden" name="gambrLama" value="<?= $mhs["gambar"] ?>">
+        <input type="hidden" name="gambarLama" value="<?= $mhs["gambar"] ?>">
         <label for="nrp">NRP :</label>
         <input type="text" name="nrp" id="nrp" placeholder="masukkan nrp anda" required value="<?= $mhs["nrp"] ?>">
         <br><br>
