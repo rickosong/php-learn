@@ -1,4 +1,30 @@
+<?php
+require 'functions.php'; 
 
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $result = mysqli_query($conn_db, "SELECT * FROM users where username = '$username'");
+    
+    // cek username
+    if (mysqli_num_rows($result) == 1) {
+        // cek password
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            header("Location: index.php");
+            exit;
+        } 
+        // else { 
+        //     echo "<script> alert('username atau password yang anda masukkan salah') </script>";
+        // } bisa dengan menggunakan lese seperti ini, tapi aku ingin menampilkan pesan kesalahannya di html
+    }
+
+    $error = true;
+
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +36,10 @@
 </head>
 <body>
     <h1>Form Login</h1>
+
+    <?php if (isset($error)) : ?>
+        <p style="color:red;">username atau password yang anda masukkan salah</p>
+    <?php endif ?>
 
     <form action="" method="post">
     <label for="username">Username:</label><br>
