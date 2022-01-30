@@ -144,5 +144,39 @@ function cari($keyword) {
 }
 
 
+// stripslashes membersihkan username, bisa menghhilangkan slash "/"
+// strtolower memaksa username menjadi huruf kecil semua
+function registrasi($data){
+    global $conn_db;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn_db, $data["password"]);
+    $password2 = mysqli_real_escape_string($conn_db, $data["password2"]);
+
+    // cek apakah username yg ditambahkan ke database sudah ada atau belum
+    $cekUsername = mysqli_query($conn_db,  "SELECT username FROM users where username = '$username'");
+    if (mysqli_fetch_assoc($cekUsername) == true) {
+        echo "<script> alert('username yang dipilih sudah terdaftar ') </script>";
+        return false;
+    }
+
+    // cek apakah data yg dimasukkan ke dalam password sama/tidak sama dengan password2 (konfirmasi password)
+    if ($password !== $password2) {
+        echo "<script> alert('konfimasi password tidak sesuai')  </script>";
+        return false;
+    }
+
+    // enkripsi password      password_hash(password yg ingin diacak, acak pakai algoritma apa)
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // memasukkan user ke dalam table users
+    $query = "INSERT INTO users values('', '$username', '$password')";
+
+    mysqli_query($conn_db, $query);
+
+return mysqli_affected_rows($conn_db);
+}
+
+
 
 ?>

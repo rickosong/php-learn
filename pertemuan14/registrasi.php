@@ -32,7 +32,7 @@ if (isset($_POST["register"])) {
         <label for="password">Password:</label><br>
         <input type="password" name="password" id="password"><br><br>
         <label for="password">Konfirmasi Password:</label><br>
-        <input type="password" name="password" id="password"><br><br>
+        <input type="password" name="password2" id="password"><br><br>
         <button type="submit" name="register">Register</button>
     </form>
 </body>
