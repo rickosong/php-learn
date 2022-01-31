@@ -37,6 +37,8 @@ if(isset($_POST["cari"])){
     <h1>Daftar Mahasiswa</h1>
     <a href="tambahdata.php">Tambah Data Mahasiswa</a>
     <br><br>
+    <button onclick="return confirm('apakah anda yakin ingin keluar dari website?')"><a href="logout.php">Logout Website</a></button>
+    <br><br>
 
     <form action="" method="post">
         <label for="search">Cari Data Mahasiswa</label>
