@@ -1,4 +1,12 @@
 <?php
+session_start();
+// cek jika sudah login maka arahkan ke index
+if (isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
+
+
 require 'functions.php'; 
 
 if (isset($_POST["login"])) {
@@ -12,6 +20,11 @@ if (isset($_POST["login"])) {
         // cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
+
+            // set session
+            $_SESSION["login"] = true;
+            
+            // arahkan ke halaman index
             header("Location: index.php");
             exit;
         } 

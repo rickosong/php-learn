@@ -1,4 +1,11 @@
 <?php
+// cek apakah user sudah login atau belum
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 
 require 'functions.php';
 

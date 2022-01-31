@@ -1,4 +1,11 @@
 <?php
+// cek apakah user sudah login atau belum
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 
 // note : ada 5 buah bagian yg ada saat kita mrngupload file gambar, yaitu name yg berisi nama file, type yg berisi jenis file gambar, tmp_name yg berisi lokasi penyimpanan data sementara, error yg berisi nilai yg jika ada kesalahan maka akan muncul angka tertentu, dan size yg berisi angka dari ukuran gambar.
 

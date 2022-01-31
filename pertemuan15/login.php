@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
         } 
         // else { 
         //     echo "<script> alert('username atau password yang anda masukkan salah') </script>";
-        // } bisa dengan menggunakan else seperti ini, tapi aku ingin menampilkan pesan kesalahannya di html
+        // } bisa dengan menggunakan lese seperti ini, tapi aku ingin menampilkan pesan kesalahannya di html
     }
 
     $error = true;
